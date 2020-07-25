@@ -23,7 +23,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     };
 
     TextView tv;
-    String msg="externalcreatefolder_\n";
+    String msg="externalcreatefolder\n";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
