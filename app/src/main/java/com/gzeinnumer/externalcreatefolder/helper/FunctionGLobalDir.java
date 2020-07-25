@@ -10,7 +10,7 @@ public class FunctionGLobalDir {
     public static String getStorageCard = Environment.getExternalStorageDirectory().toString();
     public static String appFolder = "/ExternalCreateFolder";
 
-    private static final String TAG = "FunctionGLobal_";
+    private static final String TAG = "FunctionGLobalDir_";
 
     public static void myLogD(String tag,String msg){
         Log.d("MyZein", tag+"_"+msg);
