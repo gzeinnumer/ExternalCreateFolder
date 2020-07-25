@@ -9,7 +9,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gzeinnumer.externalcreatefolder.helper.FunctionGLobal;
 
@@ -18,36 +17,45 @@ import java.util.List;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
+    private static final String TAG = "SplashScreenActivity_";
+
     String[] permissions = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
+    TextView tv;
+    String msg="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash_screen);
+        setTitle(TAG);
+
+        tv = findViewById(R.id.tv);
 
         if (checkPermissions()) {
+            msg+="Izin diberikan\n";
+            tv.setText(msg);
             onSuccessCheckPermitions();
         } else {
-            Toast.makeText(this, "Beri izin dulu", Toast.LENGTH_SHORT).show();
-            ((TextView) findViewById(R.id.tv)).setText("Beri izin dulu");
+            msg+="Beri izin dulu\n";
+            tv.setText(msg);
         }
     }
 
     private void onSuccessCheckPermitions() {
         if (FunctionGLobal.initFolder()){
             if (FunctionGLobal.isFileExists(FunctionGLobal.appFolder)){
-                Toast.makeText(this, "Sudah bisa lanjut", Toast.LENGTH_SHORT).show();
-                ((TextView) findViewById(R.id.tv)).setText("Sudah bisa lanjut");
+                msg+="Sudah bisa lanjut\n";
+                tv.setText(msg);
             } else {
-                Toast.makeText(this, "Direktory tidak ditemukan", Toast.LENGTH_SHORT).show();
-                ((TextView) findViewById(R.id.tv)).setText("Direktory tidak ditemukan");
+                msg+="Direktory tidak ditemukan\n";
+                tv.setText(msg);
             }
         } else {
-            Toast.makeText(this, "Gagal membuat folder", Toast.LENGTH_SHORT).show();
-            ((TextView) findViewById(R.id.tv)).setText("Gagal membuat folder");
+            msg+="Gagal membuat folder\n";
+            tv.setText(msg);
         }
     }
 
