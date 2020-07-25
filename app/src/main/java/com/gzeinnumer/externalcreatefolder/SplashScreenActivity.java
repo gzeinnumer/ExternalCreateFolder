@@ -10,7 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.gzeinnumer.externalcreatefolder.helper.FunctionGLobalDir;
+import com.gzeinnumer.externalcreatefolder.helper.FunctionGlobalDir;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +44,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void onSuccessCheckPermitions() {
-        if (FunctionGLobalDir.initFolder()){
-            if (FunctionGLobalDir.isFileExists(FunctionGLobalDir.appFolder)){
+        if (FunctionGlobalDir.initFolder()){
+            if (FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder)){
                 msg+="Sudah bisa lanjut\n";
                 tv.setText(msg);
             } else {

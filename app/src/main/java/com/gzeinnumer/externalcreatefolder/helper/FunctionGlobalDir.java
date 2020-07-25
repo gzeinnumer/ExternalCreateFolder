@@ -5,7 +5,7 @@ import android.util.Log;
 
 import java.io.File;
 
-public class FunctionGLobalDir {
+public class FunctionGlobalDir {
 
     public static String getStorageCard = Environment.getExternalStorageDirectory().toString();
     public static String appFolder = "/ExternalCreateFolder";
